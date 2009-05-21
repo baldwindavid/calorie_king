@@ -23,7 +23,7 @@ class CalorieKing
     CGI::escape(text)
   end
 
-  # enter a search term and receive a list of possible matches within categories
+  # enter a search term and receive a list of possible matches within an array of categories
   
   # Example:  
   # categories = CalorieKing.search 'Big Mac'
