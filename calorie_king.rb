@@ -16,7 +16,10 @@ end
 class CalorieKing
   
   include HTTParty
-  basic_auth '84294d7ae4454189bf2a3ebc37a0e421', ''
+  
+  # Test Developer Key - smaller dataset
+  # basic_auth '84294d7ae4454189bf2a3ebc37a0e421', ''
+  
   base_uri 'http://foodsearch1.webservices.calorieking.com/rest'
   
   def self.urlencode(text)
@@ -25,7 +28,8 @@ class CalorieKing
 
   # enter a search term and receive a list of possible matches within an array of categories
   
-  # Example:  
+  # irbxample:  
+  # CalorieKing.basic_auth '84294d7ae4454189bf2a3ebc37a0e421', '' (in Rails, put this in an initializer - config/initializers/calorie_king.rb)
   # categories = CalorieKing.search 'Big Mac'
   
   # >> categories.first.name
@@ -55,7 +59,8 @@ class CalorieKing
   # enter a food id and receive a hash containing the food, it's available serving types (cup, gram, teaspoon) and associated nutritional data
   # nutritional data will be returned in appropriate class (integers, floats, etc.) rather than just as a string
   
-  # Example:  
+  # irb example:
+  # CalorieKing.basic_auth '84294d7ae4454189bf2a3ebc37a0e421', '' (in Rails, put this in an initializer - config/initializers/calorie_king.rb)
   # food = CalorieKing.find_by_id "6adc1bda-24f6-42a8-87ee-4de0ba87ac96"
   
   # >> food.name
