@@ -21,10 +21,6 @@ class CalorieKing
   # basic_auth '84294d7ae4454189bf2a3ebc37a0e421', ''
   
   base_uri 'http://foodsearch1.webservices.calorieking.com/rest'
-  
-  def self.urlencode(text)
-    CGI::escape(text)
-  end
 
   # enter a search term and receive a list of possible matches within an array of categories
   
@@ -43,7 +39,7 @@ class CalorieKing
 
   def self.search(term)
     begin
-      categories = get("/search/#{urlencode(term)}")['searchresults']['category'].ensure_a
+      categories = get("/search/#{CGI::escape(term)}")['searchresults']['category'].ensure_a
       categories = categories.collect do |c| 
         Mash.new({ 
           "name" => c['name'],
